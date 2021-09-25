@@ -50,8 +50,6 @@ const PropertyForm = (props) =>  {
         propertiesService
             .saveProperty(propertyInput)
             .then(() => {
-                // this.props.closeModal()
-                // this.props.refreshCoasters()
                 setPropertyInput({
                     name: '',
                     description: '',
