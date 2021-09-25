@@ -4,8 +4,6 @@ const logger = require("morgan");
 
 const cookieParser = require("cookie-parser");
 
-const path = require("path");
-
 // Middleware configuration
 module.exports = (app) => {
   app.use(logger("dev"));
