@@ -10,7 +10,7 @@ const propertySchema = new Schema({
 
     type:{
         type: String,
-        enum: ['piso', 'obra nueva', 'disponible', 'vendido', 'proindiviso', 'tapiado', 'inmueble con cargas', 'inmueble en siruación especial']
+        enum: ['piso', 'chalet']
     },
     name: {
         type: String,
@@ -24,7 +24,7 @@ const propertySchema = new Schema({
         type    : String,
     },
 
-    district: {
+    autonomousCommunity: {
         type: String,
     },
     city: {
@@ -59,6 +59,10 @@ const propertySchema = new Schema({
     },
     discount: {
         type: Number,
+    },
+    createdAt: {
+        type: Date, 
+        default: Date.now
     },
 },
 {
