@@ -60,10 +60,6 @@ const propertySchema = new Schema({
     discount: {
         type: Number,
     },
-    createdAt: {
-        type: Date, 
-        default: Date.now
-    },
 },
 {
     timestamps: true
