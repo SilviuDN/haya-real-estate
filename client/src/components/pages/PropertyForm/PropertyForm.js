@@ -2,6 +2,7 @@ import { Component, useState } from 'react'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import PropertiesService from '../../../services/properties.services'
 import UploadsService from '../../../services/uploads.services'
+import Spinner from '../../shared/Spinner'
 
 const PropertyForm = (props) =>  {
 
@@ -185,7 +186,8 @@ const PropertyForm = (props) =>  {
                                 <Form.Control type="file" onChange={handleFileUpload} />
                             </Form.Group>
 
-                            <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit" disabled={loading} >
+                            <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit" disabled={loading} >          
+                                {loading ? <Spinner size={30}/>  : null}
                                 {loading ? 'Uploading image...' : 'Create property'} 
                             </Button>
 

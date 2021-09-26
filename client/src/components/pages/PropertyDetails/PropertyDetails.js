@@ -1,7 +1,7 @@
 import { Component } from "react";
 import PropertiesService from "../../../services/properties.services";
 
-import { Row, Col} from 'react-bootstrap'
+import { Row, Col, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 class PropertyDetails extends Component{
@@ -24,6 +24,8 @@ class PropertyDetails extends Component{
 
     render(){
 
+        console.log(this.state.property, this.props.loggedUser?._id)
+
 
         return(
             !this.state.property
@@ -39,6 +41,8 @@ class PropertyDetails extends Component{
                     <hr></hr>
                     
                     <Link to="/properties" className="btn btn-dark">Properties</Link>
+
+
 
                 </Col>
 

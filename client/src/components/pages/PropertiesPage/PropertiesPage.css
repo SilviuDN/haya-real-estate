@@ -19,3 +19,13 @@
 .btnBlock {
   width: 100%;
 }
+
+.btnGroupOwner {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.2em;
+}
+
+.btn45 {
+  width: 45%;
+}

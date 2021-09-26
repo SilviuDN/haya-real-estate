@@ -16,7 +16,10 @@ const PropertyCard = ({name, description, image, _id, owner, loggedUser}) => {
                     <Button className="btnBlock">Details</Button>
                     { ( loggedUser.role === 'agent' && owner === loggedUser._id ) || loggedUser.role === 'admin'
                     ?
-                    <Button className="btnBlock">Edit</Button>
+                    <div className='btnGroupOwner'>
+                        <Button className="btn45" variant="secondary">Edit</Button>
+                        <Button className="btn45" variant="danger">Delete</Button> 
+                    </div>
                     :
                     null
                     }
