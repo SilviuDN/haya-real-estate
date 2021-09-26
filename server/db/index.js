@@ -1,7 +1,7 @@
 // ℹ️ package responsible to make the connection with mongodb
 const mongoose = require("mongoose");
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/properties";
+const MONGO_URI =   process.env.DB_REMOTE || process.env.MONGODB_URI || "mongodb://localhost/properties";
 
 mongoose
   .connect(MONGO_URI)
