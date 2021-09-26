@@ -8,9 +8,9 @@
 
 ### Preview:
 
-- https://6150e42a07a454a921aff2be--adoring-northcutt-ab976a.netlify.app/properties
+- https://6150e42a07a454a921aff2be--adoring-northcutt-ab976a.netlify.app
 
-### Locally instalation:
+### Local instalation:
 
 - clone the repo <$ https://github.com/SilviuDN/haya-real-estate.git>
 
@@ -75,39 +75,41 @@
 ## Models:
 
 - User:
-  email: {type: String, unique: true,},
-  password: {type: String,},
-  role: {type: String, enum: ['admin', 'user', 'agent'], default: 'user',},
-  name: {type: String,},
-  surname: {type: String,},
-  properties: [{type: Schema.Types.ObjectId, ref: 'Property'}],
+
+  - email: {type: String, unique: true,},
+  - password: {type: String,},
+  - role: {type: String, enum: ['admin', 'user', 'agent'], default: 'user',},
+  - name: {type: String,},
+  - surname: {type: String,},
+  - properties: [{type: Schema.Types.ObjectId, ref: 'Property'}],
 
 - Property:
-  owner: {type: Schema.Types.ObjectId, ref: 'User', required: true,},
 
-  type:{type: String, enum: ['piso', 'chalet'] },
-  name: {type: String,},
-  status: {type: String,
-  enum: ['segunda mano', 'obra nueva', 'pendiente inscripción', 'disponible', 'vendido', 'proindiviso', 'tapiado', 'inmueble con cargas', 'inmueble en situación especial'],},
-  description: {type: String,},
-  autonomousCommunity: {type: String,},
-  city: {type: String,},
-  location: {
-  type: {
-  type: String,
-  },
-  coordinates: [Number],
-  },
+  - owner: {type: Schema.Types.ObjectId, ref: 'User', required: true,},
 
-  size: {type: Number,},
-  rooms: {type: Number,},
-  bathrooms: {type: Number,},
+  - type:{type: String, enum: ['piso', 'chalet'] },
+  - name: {type: String,},
+  - status: {type: String,
+  - enum: ['segunda mano', 'obra nueva', 'pendiente inscripción', 'disponible', 'vendido', 'proindiviso', 'tapiado', 'inmueble con cargas', 'inmueble en situación - especial'],},
+  - description: {type: String,},
+  - autonomousCommunity: {type: String,},
+  - city: {type: String,},
+  - location: {
+  - type: {
+    type: String,
+    },
+  - coordinates: [Number],
+    },
 
-  image: {type: String,},
+  - size: {type: Number,},
+  - rooms: {type: Number,},
+  - bathrooms: {type: Number,},
 
-  price: {type: Number,},
-  discountedPrice: {type: Number,},
-  discount: {type: Number,},
+  - image: {type: String,},
+
+  - price: {type: Number,},
+  - discountedPrice: {type: Number,},
+  - discount: {type: Number,},
 
 ## Routes:
 
