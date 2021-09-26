@@ -23,12 +23,7 @@ const PropertyCard = ({name, description, image, _id, owner, loggedUser}) => {
                     :
                     null
                     }
-                    { loggedUser.role === 'admin'
-                    ?
-                    <Button className="btnBlock">Delete</Button> 
-                    :
-                    null
-                    }
+
 
 
                 </Link>
