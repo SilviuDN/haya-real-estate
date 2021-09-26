@@ -1,12 +1,12 @@
-import {Container, Button} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import PropertiesList from './PropertiesList'
 
-const PropertiesPage = () => {
+const PropertiesPage = (loggedUser) => {
 
     return(
         <Container>
             <h1>Properties list goes here</h1>
-            <PropertiesList/>
+            <PropertiesList  loggedUser={loggedUser}/>
             <p style={{marginBottom: '3rem'}}></p>
         </Container>
     )

@@ -32,7 +32,7 @@ class PropertiesList extends Component{
             <h1>waiting...</h1>
             :
             <Row>
-                {this.state.properties?.map( elm => <PropertyCard key = {elm._id} {...elm}/>)}
+                {this.state.properties?.map( elm => <PropertyCard key = {elm._id} {...elm} loggedUser={this.props.loggedUser}/>)}
             </Row>
 
         return(

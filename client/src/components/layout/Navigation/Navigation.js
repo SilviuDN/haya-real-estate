@@ -1,7 +1,19 @@
 import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const Navigation = () => {
+import AuthService from '../../../services/auth.services'
+
+const Navigation = ({ storeUser, loggedUser }) => {
+
+
+    const authService = new AuthService()
+
+    const logout = () => {
+        authService
+            .logout()
+            .then(() => storeUser(undefined))
+            .catch(err => console.log(err))
+    }
 
     return (
         <Navbar bg="dark" variant="dark" expand="md" style={{ marginBottom: '30px' }}>
@@ -13,7 +25,7 @@ const Navigation = () => {
                     <Link className="nav-link" to="/properties">Properties</Link>
                     <Link className="nav-link" to="/properties/new">New</Link>
                 
-                    {!false
+                    {!loggedUser
                         ?
                         <>
                             <Link className="nav-link" to="/signup">SignUp</Link>
@@ -21,9 +33,10 @@ const Navigation = () => {
                         </>
                         :
                         <>
-                            <span className="nav-link" >LogOut</span>
+                            <span className="nav-link" onClick = { () => logout()} >LogOut</span>
                         </>
                     }
+                    <span className="nav-link" >Hello {loggedUser ? ', ' + loggedUser.name : ''}!</span>
 
                 </Nav>
             </Navbar.Collapse>
