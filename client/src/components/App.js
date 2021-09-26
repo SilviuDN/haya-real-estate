@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Routes from './Routes'
-import Footer from './Footer/Footer';
+import Footer from './layout/Footer/Footer';
 import Navigation from './layout/Navigation/Navigation';
 import AuthService from '../services/auth.services'
 

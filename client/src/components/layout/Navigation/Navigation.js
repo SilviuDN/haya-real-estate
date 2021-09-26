@@ -23,7 +23,13 @@ const Navigation = ({ storeUser, loggedUser }) => {
                 <Nav className="mr-auto">
                     <Link className="nav-link" to="/">Home</Link>
                     <Link className="nav-link" to="/properties">Properties</Link>
-                    <Link className="nav-link" to="/properties/new">New</Link>
+                    {loggedUser && ( loggedUser.role === 'admin' || loggedUser.role === 'agent')
+                    ?
+                        <Link className="nav-link" to="/properties/new">New</Link>
+                    :
+                    null
+                    }
+
                 
                     {!loggedUser
                         ?
