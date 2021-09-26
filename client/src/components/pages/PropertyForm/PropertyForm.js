@@ -17,8 +17,11 @@ const PropertyForm = (props) =>  {
             bathrooms: '',
             price: '',
             discountedPrice: '',
-            image: ''
+            image: '',
+            owner: ''
     })
+
+    console.log(props.loggedUser._id)
 
     const [loading, setLoading] = useState(false)
 
@@ -50,6 +53,10 @@ const PropertyForm = (props) =>  {
 
     const handleFormSubmit = e => {
         e.preventDefault()
+
+        setPropertyInput((prevPropertyInput) => {
+            return { ...prevPropertyInput, owner: props.loggedUser._id }
+        } )
 
         propertiesService
             .saveProperty(propertyInput)

@@ -15,7 +15,7 @@ const Routes = ({ storeUser, loggedUser }) => {
                 <Route path = '/' exact render = { () => <IndexPage/>} />
                 <Route path = '/properties' exact render = { () => <PropertiesPage  {...loggedUser}/> } />               
                 <Route path = '/properties/details/:property_id' render = { props => <PropertyDetails {...props}/> } />
-                <Route path = '/properties/new' render = { (props) => <PropertyForm {...props}/> } />
+                <Route path = '/properties/new' render = { (props) => <PropertyForm {...props} loggedUser = {loggedUser}/> } />
                 <Route path = '/signup' render = { (props) => <SignUp {...props} /> } />
                 <Route path = '/login' render = { (props) => <LogIn {...props} storeUser={storeUser} /> } />
             </Switch>
