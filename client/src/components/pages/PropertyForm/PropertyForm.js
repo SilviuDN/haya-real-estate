@@ -64,7 +64,7 @@ const PropertyForm = (props) =>  {
                     discountedPrice: '',
                     image: ''
                 })
-                this.props.history.push('/properties')
+                props.history.push('/properties')
             })
             .catch(err => console.log(err))
     }
