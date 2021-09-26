@@ -1,5 +1,5 @@
 import { Component, useState } from 'react'
-import { Form, Button, Container } from 'react-bootstrap'
+import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import PropertiesService from '../../../services/properties.services'
 
 const PropertyForm = (props) =>  {
@@ -72,6 +72,9 @@ const PropertyForm = (props) =>  {
 
         return (
             <Container>
+                <Row>
+                    <Col md={{span: 6, offset: 3}}>
+
 
                 <Form onSubmit={handleFormSubmit}>
 
@@ -137,7 +140,9 @@ const PropertyForm = (props) =>  {
 
                     <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit">Create property</Button>
 
-                </Form>
+                </Form>                        
+                    </Col>
+                </Row>
 
             </Container>
         )

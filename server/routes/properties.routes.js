@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
     Property
         .find()
-        .sort({ date: -1 })
+        .sort({ createdAt: -1 })
         .then(response => res.json(response))
         // .then(response => setTimeout(() => res.json(response), 200))
         .catch(err => res.status(500).json({ code: 500, message: 'Error fetching properties', err }))
