@@ -1,6 +1,7 @@
 import { Component, useState } from 'react'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import PropertiesService from '../../../services/properties.services'
+import UploadsService from '../../../services/uploads.services'
 
 const PropertyForm = (props) =>  {
 
@@ -19,7 +20,10 @@ const PropertyForm = (props) =>  {
             image: ''
     })
 
+    const [loading, setLoading] = useState(false)
+
     const propertiesService = new PropertiesService()
+    const uploadsService = new UploadsService()
 
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -65,6 +69,34 @@ const PropertyForm = (props) =>  {
                     image: ''
                 })
                 props.history.push('/properties')
+            })
+            .catch(err => console.log(err))
+    }
+
+
+    const handleFileUpload = e => {
+
+        setLoading(true)
+
+        const uploadData = new FormData()
+        uploadData.append('imageData', e.target.files[0])
+
+        uploadsService
+            .uploadImage(uploadData)
+            .then(response => {
+
+                setPropertyInput((prevPropertyInput) => {
+                    return { ...prevPropertyInput, image: response.data.cloudinary_url }
+                } )
+
+                setLoading(false)
+
+
+
+                // this.setState({
+                //     loading: false,
+                //     coaster: { ...this.state.coaster, imageUrl: response.data.cloudinary_url }
+                // })
             })
             .catch(err => console.log(err))
     }
@@ -136,12 +168,19 @@ const PropertyForm = (props) =>  {
                                 <Form.Control type="text" value={propertyInput.discountedPrice} onChange={handleInputChange} name="discountedPrice" />
                             </Form.Group>
 
-                            <Form.Group controlId="image">
+                            {/* <Form.Group controlId="image">
                                 <Form.Label>Imagen (URL)</Form.Label>
                                 <Form.Control type="text" value={propertyInput.image} onChange={handleInputChange} name="image" />
+                            </Form.Group> */}
+
+                            <Form.Group controlId="image">
+                                <Form.Label>Upload Local Image</Form.Label>
+                                <Form.Control type="file" onChange={handleFileUpload} />
                             </Form.Group>
 
-                            <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit">Create property</Button>
+                            <Button style={{ marginTop: '20px', width: '100%' }} variant="dark" type="submit" disabled={loading} >
+                                {loading ? 'Uploading image...' : 'Create property'} 
+                            </Button>
 
                         </Form>                        
                     </Col>
