@@ -1,4 +1,4 @@
-# Maya Real Estate v0.1.1 - the server
+# Maya Real Estate v0.1.1
 
 ## The Idea:
 
@@ -9,6 +9,31 @@
 ### Preview:
 
 - https://6150e42a07a454a921aff2be--adoring-northcutt-ab976a.netlify.app
+
+### User can initiate session as having one of three Roles:
+
+- Regular User
+  - can visualize all properties LATEST FIRST
+  - TO DO: filter on location, area, type ...
+- Real Estate Agent
+  - can register new properties
+  - has acces to delete, edit buttons for his properties
+  - TO DO:
+    - add functionality to the edit / delete buttons
+    - move delete / remove buttons to details page
+- Administrator
+  - can register new properties
+  - can acces edit / delete buttons for any property
+
+### Practice accounts:
+
+- Real Estate Agents:
+  - b@gmail.com, password: b
+  - c@gmail.com, password: c
+- Admin:
+  - a@gmail.com, password: a
+- Regular User:
+  - just sign up and make an account
 
 ### Local instalation:
 
@@ -23,6 +48,10 @@
 
 - npm i
 - npm start
+
+## technologies:
+
+- Node.Js, Express.Js, Mongoose, React.Js
 
 ## Data persistency:
 
